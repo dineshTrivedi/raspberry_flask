@@ -49,7 +49,7 @@ Disk identifier: 0xa6202af7
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
 
 
-## Adding 1GB Space
+## (OPTIONAL) Adding 1GB Space
 * `dd if=/dev/zero bs=1M count=1024 >> 2015-05-05-raspbian-wheezy.img`
 
 Expected:
