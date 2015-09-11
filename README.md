@@ -124,6 +124,7 @@ Partition Table: msdos
 * `(parted) rm 2`
 * `(parted) mkpart primary 62.9 4351`
 * `(parted) print`
+
 ``` 
 Model: Loopback device (loop)
 Disk /dev/loop0: 4351MB
@@ -139,6 +140,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 Next, check and resize the new partition:
 * `sudo e2fsck -f /dev/loop1`
+
 ``` 
 e2fsck 1.42.9 (4-Feb-2014)
 Pass 1: Checking inodes, blocks, and sizes
@@ -150,6 +152,7 @@ Pass 5: Checking group summary information
 ``` 
 
 * `sudo resize2fs /dev/loop1`
+
 ``` 
 resize2fs 1.42.9 (4-Feb-2014)
 Resizing the filesystem on /dev/loop1 to 1046784 (4k) blocks.
@@ -160,6 +163,7 @@ The filesystem on /dev/loop1 is now 1046784 blocks long.
 And you can check that it worked, it's 1 GB larger!
 * `sudo parted /dev/loop0`
 * `(parted) print`
+
 ``` 
 Model: Loopback device (loop)
 Disk /dev/loop0: 4351MB
@@ -169,7 +173,6 @@ Partition Table: msdos
 Number  Start   End     Size    Type     File system  Flags
  1      4194kB  62.9MB  58.7MB  primary  fat16        lba
  2      62.9MB  4351MB  4288MB  primary  ext4
-
 ``` 
 
 ### Clean up loopback devices
