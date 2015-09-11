@@ -41,12 +41,13 @@ Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk identifier: 0xa6202af7
-
+``` 
+``
 | Device Boot | Start | End | Blocks | Id | System |
 |---|---|---|---|---|---|
 2015-05-05-raspbian-wheezy.img1 | 8192 | 122879 | 57344 | c | W95 FAT32 (LBA) |
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
-``` 
+`` 
 
 ## Adding 1GB Space
 * `dd if=/dev/zero bs=1M count=1024 >> 2015-05-05-raspbian-wheezy.img`
@@ -71,12 +72,13 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 Disk identifier: 0xa6202af7
-
+``` 
+``
 | Device Boot | Start | End | Blocks | Id | System |
 |---|---|---|---|---|---|
 2015-05-05-raspbian-wheezy.img1 | 8192 | 122879 | 57344 | c | W95 FAT32 (LBA) |
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
-``` 
+`` 
 
 ### Loopback device
 Make a loopback device for the whole image, and one for the raspbian root (which we found starts 122880 sectors in and each sector is 512 bytes)
