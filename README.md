@@ -233,6 +233,52 @@ Before you need to clean it (if you chroot it and mounted the image):
 * [Installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 * [Linux Installation](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
 
-## References
+##  Raspberry pi References
 * [Wiki Debian](https://wiki.debian.org/RaspberryPi/qemu-user-static)
 * [Raspbian official](https://www.raspbian.org/FrontPage)
+
+## Python env
+* `sudo apt-get update`
+* `sudo apt-get install python-pip python-dev build-essential`
+* `sudo pip install --upgrade pip`
+* `sudo pip install --upgrade virtualenv`
+* `sudo apt-get install vim`
+
+## Flask Sample
+* `sudo su pi`
+* `cd`
+* `mkdir flask_sample`
+* `cd flask_sample`
+* `vim requirements.txt`
+
+Add flask dependency in requirements.txt (No specific version):
+
+```
+flask
+```
+
+### Create virtualenv
+* `virtualenv venv_flask_sample`
+* `source venv_flask_sample/bin/activate`
+* `pip install -r requirements.txt`
+
+### Create app.py
+* `vim app.py`
+
+```
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello, World!"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+* `python app.py`
+
+```
+```
