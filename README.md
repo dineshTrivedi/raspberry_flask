@@ -34,7 +34,6 @@ or
 * `fdisk -lu 2015-05-05-raspbian-wheezy.img`
 
 Expected:
-
 ``
 Disk 2015-05-05-raspbian-wheezy.img: 3276 MB, 3276800000 bytes
 255 heads, 63 sectors/track, 398 cylinders, total 6400000 sectors
@@ -52,7 +51,6 @@ Disk identifier: 0xa6202af7
 * `dd if=/dev/zero bs=1M count=1024 >> 2015-05-05-raspbian-wheezy.img`
 
 Expected:
-
 ``
 1024+0 records in
 1024+0 records out
@@ -62,7 +60,6 @@ Expected:
 * `fdisk -lu 2015-05-05-raspbian-wheezy.img`
 
 ``
-
 Disk 2015-05-05-raspbian-wheezy.img: 4350 MB, 4350541824 bytes
 
 255 heads, 63 sectors/track, 528 cylinders, total 8497152 sectors
@@ -80,6 +77,7 @@ Disk identifier: 0xa6202af7
 2015-05-05-raspbian-wheezy.img1 | 8192 | 122879 | 57344 | c | W95 FAT32 (LBA) |
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
 ``
+
 ### Loopback device
 Make a loopback device for the whole image, and one for the raspbian root (which we found starts 122880 sectors in and each sector is 512 bytes)
 
@@ -106,14 +104,17 @@ Now /dev/loop0 is the whole partition, /dev/loop1 is what we want to expand. In 
 * `(parted) print`
 ``
 Model: Loopback device (loop)
+
 Disk /dev/loop0: 4351MB
+
 Sector size (logical/physical): 512B/512B
+
 Partition Table: msdos
 
-Number  Start   End     Size    Type     File system  Flags
- 1      4194kB  62.9MB  58.7MB  primary  fat16        lba
- 2      62.9MB  3277MB  3214MB  primary  ext4
-
+| Number | Start |  End | Size | Type | File system | Flags |
+|---|---|---|---|---|---|---|
+| 1 | 4194kB | 62.9MB | 58.7MB | primary | fat16 | lba |
+| 2 | 62.9MB | 3277MB | 3214MB | primary | ext4 | |
 ``
 
 * `(parted) rm 2`
