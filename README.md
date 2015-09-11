@@ -7,7 +7,7 @@
 * `update-binfmts --display`
 
 Expected:
-``
+``` 
 ...
 qemu-arm (enabled):
      package = qemu-user-static
@@ -18,7 +18,7 @@ qemu-arm (enabled):
  interpreter = /usr/bin/qemu-arm-static
     detector = 
 ...
-``
+```
 
 ## Download Raspbian Image
 * [Raspbian Image](https://www.raspberrypi.org/downloads/)
@@ -34,7 +34,7 @@ or
 * `fdisk -lu 2015-05-05-raspbian-wheezy.img`
 
 Expected:
-``
+``` 
 Disk 2015-05-05-raspbian-wheezy.img: 3276 MB, 3276800000 bytes
 255 heads, 63 sectors/track, 398 cylinders, total 6400000 sectors
 Units = sectors of 1 * 512 = 512 bytes
@@ -46,19 +46,20 @@ Disk identifier: 0xa6202af7
 |---|---|---|---|---|---|
 2015-05-05-raspbian-wheezy.img1 | 8192 | 122879 | 57344 | c | W95 FAT32 (LBA) |
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
-``
+``` 
+
 ## Adding 1GB Space
 * `dd if=/dev/zero bs=1M count=1024 >> 2015-05-05-raspbian-wheezy.img`
 
 Expected:
-``
+``` 
 1024+0 records in
 1024+0 records out
 1073741824 bytes (1.1 GB) copied, 3.00026 s, 358 MB/s
-``
+``` 
 
 * `fdisk -lu 2015-05-05-raspbian-wheezy.img`
-``
+``` 
 Disk 2015-05-05-raspbian-wheezy.img: 4350 MB, 4350541824 bytes
 
 255 heads, 63 sectors/track, 528 cylinders, total 8497152 sectors
@@ -75,7 +76,7 @@ Disk identifier: 0xa6202af7
 |---|---|---|---|---|---|
 2015-05-05-raspbian-wheezy.img1 | 8192 | 122879 | 57344 | c | W95 FAT32 (LBA) |
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
-``
+``` 
 
 ### Loopback device
 Make a loopback device for the whole image, and one for the raspbian root (which we found starts 122880 sectors in and each sector is 512 bytes)
