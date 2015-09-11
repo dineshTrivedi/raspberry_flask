@@ -62,14 +62,21 @@ Expected:
 
 ``
 Disk 2015-05-05-raspbian-wheezy.img: 4350 MB, 4350541824 bytes
+
 255 heads, 63 sectors/track, 528 cylinders, total 8497152 sectors
+
 Units = sectors of 1 * 512 = 512 bytes
+
 Sector size (logical/physical): 512 bytes / 512 bytes
+
 I/O size (minimum/optimal): 512 bytes / 512 bytes
+
 Disk identifier: 0xa6202af7
 
                          Device Boot      Start         End      Blocks   Id  System
+                         
 2015-05-05-raspbian-wheezy.img1            8192      122879       57344    c  W95 FAT32 (LBA)
+
 2015-05-05-raspbian-wheezy.img2          122880     6399999     3138560   83  Linux
 
 ``
@@ -159,6 +166,9 @@ Number  Start   End     Size    Type     File system  Flags
  2      62.9MB  4351MB  4288MB  primary  ext4
 
 ``
+
+### Clean up loopback devices
+* `sudo losetup -d /dev/loop0 /dev/loop1`
 
 ## Creating SD Card
 * [Installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
