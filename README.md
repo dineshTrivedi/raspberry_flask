@@ -61,6 +61,7 @@ Expected:
 * `fdisk -lu 2015-05-05-raspbian-wheezy.img`
 
 ``
+
 Disk 2015-05-05-raspbian-wheezy.img: 4350 MB, 4350541824 bytes
 
 255 heads, 63 sectors/track, 528 cylinders, total 8497152 sectors
@@ -74,8 +75,8 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk identifier: 0xa6202af7
 
                          Device Boot      Start         End      Blocks   Id  System
-                         
-2015-05-05-raspbian-wheezy.img1            8192      122879       57344    c  W95 FAT32 (LBA)
+
+2015-05-05-raspbian-wheezy.img1				8192		122879		57344	c 	W95 FAT32 (LBA)
 
 2015-05-05-raspbian-wheezy.img2          122880     6399999     3138560   83  Linux
 
