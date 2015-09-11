@@ -221,6 +221,8 @@ Before you need to clean it (if you chroot it and mounted the image):
 * `sudo umount ~/rpi_mnt/boot`
 * `sudo umount ~/rpi_mnt`
 
+### SD Cards - References
+
 * [Installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 * [Linux Installation](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
 
