@@ -73,12 +73,12 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 Disk identifier: 0xa6202af7
 ``` 
-``
+
 | Device Boot | Start | End | Blocks | Id | System |
 |---|---|---|---|---|---|
 2015-05-05-raspbian-wheezy.img1 | 8192 | 122879 | 57344 | c | W95 FAT32 (LBA) |
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
-`` 
+ 
 
 ### Loopback device
 Make a loopback device for the whole image, and one for the raspbian root (which we found starts 122880 sectors in and each sector is 512 bytes)
@@ -105,7 +105,7 @@ Now /dev/loop0 is the whole partition, /dev/loop1 is what we want to expand. In 
 ### parted Commands
 * `(parted) print`
 
-``
+``` 
 Model: Loopback device (loop)
 
 Disk /dev/loop0: 4351MB
@@ -113,17 +113,17 @@ Disk /dev/loop0: 4351MB
 Sector size (logical/physical): 512B/512B
 
 Partition Table: msdos
+``` 
 
 | Number | Start |  End | Size | Type | File system | Flags |
 |---|---|---|---|---|---|---|
 | 1 | 4194kB | 62.9MB | 58.7MB | primary | fat16 | lba |
 | 2 | 62.9MB | 3277MB | 3214MB | primary | ext4 | |
-``
 
 * `(parted) rm 2`
 * `(parted) mkpart primary 62.9 4351`
 * `(parted) print`
-``
+``` 
 Model: Loopback device (loop)
 Disk /dev/loop0: 4351MB
 Sector size (logical/physical): 512B/512B
@@ -132,13 +132,13 @@ Partition Table: msdos
 Number  Start   End     Size    Type     File system  Flags
  1      4194kB  62.9MB  58.7MB  primary  fat16        lba
  2      62.9MB  4351MB  4288MB  primary  ext4
-``
+``` 
 
 * `(parted) quit`
 
 Next, check and resize the new partition:
 * `sudo e2fsck -f /dev/loop1`
-``
+``` 
 e2fsck 1.42.9 (4-Feb-2014)
 Pass 1: Checking inodes, blocks, and sizes
 Pass 2: Checking directory structure
@@ -146,20 +146,20 @@ Pass 3: Checking directory connectivity
 Pass 4: Checking reference counts
 Pass 5: Checking group summary information
 /dev/loop1: 86233/196224 files (0.1% non-contiguous), 630146/784640 blocks
-``
+``` 
 
 * `sudo resize2fs /dev/loop1`
-``
+``` 
 resize2fs 1.42.9 (4-Feb-2014)
 Resizing the filesystem on /dev/loop1 to 1046784 (4k) blocks.
 The filesystem on /dev/loop1 is now 1046784 blocks long.
-``
+``` 
 
 ### Checking resizing
 And you can check that it worked, it's 1 GB larger!
 * `sudo parted /dev/loop0`
 * `(parted) print`
-``
+``` 
 Model: Loopback device (loop)
 Disk /dev/loop0: 4351MB
 Sector size (logical/physical): 512B/512B
@@ -169,7 +169,7 @@ Number  Start   End     Size    Type     File system  Flags
  1      4194kB  62.9MB  58.7MB  primary  fat16        lba
  2      62.9MB  4351MB  4288MB  primary  ext4
 
-``
+``` 
 
 ### Clean up loopback devices
 * `sudo losetup -d /dev/loop0 /dev/loop1`
