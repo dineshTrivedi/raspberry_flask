@@ -78,6 +78,11 @@ root@ubuntu:/# uname -a
 Linux ubuntu 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 armv7l GNU/Linux
 ```
 
+## Starting http server
+* `python -m SimpleHTTPServer 8081`
+
+Access localhost:8081 in browser and you will see the / in raspberry pi image.
+
 ## (OPTIONAL) Adding 1GB Space
 * `dd if=/dev/zero bs=1M count=1024 >> 2015-05-05-raspbian-wheezy.img`
 
@@ -220,6 +225,8 @@ Before you need to clean it (if you chroot it and mounted the image):
 * `sudo umount ~/rpi_mnt/dev/pts`
 * `sudo umount ~/rpi_mnt/boot`
 * `sudo umount ~/rpi_mnt`
+
+* your image is still in ~/rpi_image and ready to be flashed!
 
 ### SD Cards - References
 
