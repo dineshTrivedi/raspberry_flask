@@ -282,3 +282,25 @@ if __name__ == '__main__':
 
 ```
 ```
+
+## Flask Post Method
+
+Before main in app.py add this piece of code:
+
+```
+from datetime import datetime
+from flask import request
+from flask import jsonify
+
+@app.route('/api/alert/email', methods=['POST'])
+def alert_by_email():
+    content = request.get_json()
+    content['received_at'] = datetime.now()
+    return jsonify({'received': content}), 200
+```
+
+* `python app.py`
+
+Install curl in host and execute the post method:
+* `sudo apt-get install curl`
+* `curl -i -H "Content-Type: application/json" -X POST -d '{"title":"Read a book"}' http://localhost:5000/api/alert/email`
