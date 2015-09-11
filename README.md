@@ -58,7 +58,6 @@ Expected:
 ``
 
 * `fdisk -lu 2015-05-05-raspbian-wheezy.img`
-
 ``
 Disk 2015-05-05-raspbian-wheezy.img: 4350 MB, 4350541824 bytes
 
@@ -102,6 +101,7 @@ Now /dev/loop0 is the whole partition, /dev/loop1 is what we want to expand. In 
 
 ### parted Commands
 * `(parted) print`
+
 ``
 Model: Loopback device (loop)
 
