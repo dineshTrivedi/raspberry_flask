@@ -48,6 +48,35 @@ Disk identifier: 0xa6202af7
 2015-05-05-raspbian-wheezy.img1 | 8192 | 122879 | 57344 | c | W95 FAT32 (LBA) |
 2015-05-05-raspbian-wheezy.img2 | 122880 | 6399999 | 3138560 | 83 | Linux |
 
+## Mount the image
+* `mkdir ~/rpi_mnt
+* `sudo mount 2015-05-05-raspbian-wheezy.img -o loop,offset=$((122880*512)),rw ~/rpi_mnt`
+
+## (OPTIONAL) mount the raspbian /boot
+* `sudo mount 2015-05-05-raspbian-wheezy.img -o loop,offset=$((8192*512)),rw ~/rpi_mnt/boot`
+
+or
+
+* `cd ~/rpi_mnt`
+* `sudo mount --bind /dev dev/`
+* `sudo mount --bind /sys sys/`
+* `sudo mount --bind /proc proc/`
+* `sudo mount --bind /dev/pts dev/pts`
+
+## Network working
+
+To get everything work (e.g., network) you need to comment out everything in ~/rpi_mnt/etc/ld.so.preload before chrooting in. Take care of that now!
+
+## chroot in to the image
+* `sudo cp /usr/bin/qemu-arm-static ~/rpi_mnt/usr/bin`
+* `cd ~/rpi_mnt`
+* `sudo chroot . bin/bash` 
+
+```
+$ sudo chroot . bin/bash
+root@ubuntu:/# uname -a
+Linux ubuntu 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 armv7l GNU/Linux
+```
 
 ## (OPTIONAL) Adding 1GB Space
 * `dd if=/dev/zero bs=1M count=1024 >> 2015-05-05-raspbian-wheezy.img`
@@ -179,6 +208,19 @@ Number  Start   End     Size    Type     File system  Flags
 * `sudo losetup -d /dev/loop0 /dev/loop1`
 
 ## Creating SD Card
+
+Before you need to clean it (if you chroot it and mounted the image):
+* uncomment /etc/ld.so.preload
+* exit the chroot (e.g., type "exit")
+* unmount all that was mounted
+
+* `sudo umount ~/rpi_mnt/dev` 
+* `sudo umount ~/rpi_mnt/sys`
+* `sudo umount ~/rpi_mnt/proc`
+* `sudo umount ~/rpi_mnt/dev/pts`
+* `sudo umount ~/rpi_mnt/boot`
+* `sudo umount ~/rpi_mnt`
+
 * [Installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
 * [Linux Installation](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
 
