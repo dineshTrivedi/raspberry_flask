@@ -335,3 +335,18 @@ from flask import render_template
 def hello_template():
     return render_template('index.html')
 ```
+
+## Adding Dynamic Template (jinja2)
+
+* Create a new route
+
+``` 
+@app.route('/hello/<name>')
+def hello(name):
+    return render_template('page.html', name=name)
+```
+
+* Create a new html file called src/templates/page.html
+```
+<h1>Hello {{ name }}!</h1>
+```

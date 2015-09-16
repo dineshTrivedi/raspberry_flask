@@ -22,5 +22,9 @@ from flask import render_template
 def hello_template():
     return render_template('index.html')
 
+@app.route('/hello/<name>')
+def hello(name):
+    return render_template('page.html', name=name)
+
 if __name__ == '__main__':
     app.run(debug=True)
