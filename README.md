@@ -228,15 +228,6 @@ Before you need to clean it (if you chroot it and mounted the image):
 
 * your image is still in ~/rpi_image and ready to be flashed!
 
-### SD Cards - References
-
-* [Installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
-* [Linux Installation](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
-
-##  Raspberry pi References
-* [Wiki Debian](https://wiki.debian.org/RaspberryPi/qemu-user-static)
-* [Raspbian official](https://www.raspbian.org/FrontPage)
-
 ## Python env
 * `sudo apt-get update`
 * `sudo apt-get install python-pip python-dev build-essential`
@@ -385,3 +376,15 @@ body {
 </body>
 </html>
 ```
+
+### SD Cards - References
+
+* [Installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
+* [Linux Installation](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
+
+###  Raspberry pi References
+* [Wiki Debian](https://wiki.debian.org/RaspberryPi/qemu-user-static)
+* [Raspbian official](https://www.raspbian.org/FrontPage)
+
+### Flask References
+* [Flask + Raspberry pi](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
