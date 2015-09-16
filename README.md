@@ -304,3 +304,34 @@ def alert_by_email():
 Install curl in host and execute the post method:
 * `sudo apt-get install curl`
 * `curl -i -H "Content-Type: application/json" -X POST -d '{"title":"Read a book"}' http://localhost:5000/api/alert/email`
+
+## Adding Template
+
+Create a directory called templates in src folder:
+
+* mkdir src/templates
+
+```
+[4256:4244 - 0:442] 10:19:55 [dinesh@ubuntu:o +1] ~/work/solo/raspberry_flask (master)  
+$ ls src/
+app.py  templates
+
+```
+
+With a text editor create and edit a file called src/templates/index.html
+
+```
+<html>
+<body>
+<h1>Hello from a template!</h1>
+</body>
+</html>
+```
+
+```
+from flask import render_template
+
+@app.route('/hellotemplate')
+def hello_template():
+    return render_template('index.html')
+```

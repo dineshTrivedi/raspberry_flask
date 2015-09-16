@@ -16,6 +16,11 @@ def alert_by_email():
     content['received_at'] = datetime.now()
     return jsonify({'received': content}), 200
 
+from flask import render_template
+
+@app.route('/hellotemplate')
+def hello_template():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
