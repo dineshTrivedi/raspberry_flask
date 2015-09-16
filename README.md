@@ -347,6 +347,41 @@ def hello(name):
 ```
 
 * Create a new html file called src/templates/page.html
+
 ```
 <h1>Hello {{ name }}!</h1>
+```
+
+## Adding static file (CSS ou Js)
+
+Create a directory called static in src folder:
+
+* mkdir src/static
+
+```
+[4256:4244 - 0:446] 10:30:26 [dinesh@ubuntu:o +1] ~/work/solo/raspberry_flask (master)  
+$ ls src
+app.py  static  templates
+```
+
+* Create a new css file called style.css
+
+``` 
+body {
+    background: red;
+    color: yellow;
+}
+```
+
+* Now edit src/templates/index.html
+
+```
+<html>
+<head>
+<link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+<h1>Hello from a template!</h1>
+</body>
+</html>
 ```
