@@ -1,2 +1,6 @@
+# python
 *.pyc
 venv/
+
+# nodejs
+node_modules/
