@@ -383,6 +383,31 @@ body {
 * `sudo apt-get install nodejs-legacy`
 * `sudo apt-get install npm`
 
+## Installing global bower
+* `sudo npm install -g bower`
+
+## Init Project
+* `npm install`
+* `bower install`
+
+## (For new Projects)First Setup Example
+
+### Configuring NodeJs
+* Go to project directory: `cd <project_dir>`
+* Run `npm init`
+* Complete project informations
+
+### Installing local bower
+* `npm install bower --save`
+
+### Configuring bower
+* Go to project directory: `cd <project_dir>`
+* Run `bower init`
+* Complete project informations
+
+### Installing AngularJs
+* `bower install angular --save`
+
 ### SD Cards - References
 
 * [Installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
