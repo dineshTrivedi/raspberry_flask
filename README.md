@@ -405,6 +405,15 @@ body {
 * Run `bower init`
 * Complete project informations
 
+### Bower config file - .bowerrc
+.bowerrc is bower's config file. It should be in the same directory of bower.json.
+Configuring dist directory:
+```
+{
+  "directory": "src/static/javascript/bower_components/"
+}
+```
+
 ### Installing AngularJs
 * `bower install angular --save`
 
